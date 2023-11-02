@@ -33,6 +33,9 @@ import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {PostListComponent} from "./pages/post/post-list.component";
 import {PostOperationComponent} from "./pages/post/post-operation.component";
+import {NzUploadModule} from "ng-zorro-antd/upload";
+import {CategorySelectComponent} from "./pages/category/category-select.component";
+import {NzSelectModule} from "ng-zorro-antd/select";
 
 registerLocaleData(en);
 const firebaseConfig = {
@@ -51,33 +54,36 @@ const firebaseConfig = {
     CategoryListComponent,
     CategoryOperationComponent,
     CategoryDeleteComponent,
+    CategorySelectComponent,
     PostListComponent,
     PostOperationComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    IconsProviderModule,
-    NzLayoutModule,
-    NzMenuModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    provideFirestore(() => getFirestore()),
-    AngularFireStorageModule,
-    AngularFireAuthModule,
-    NzButtonModule,
-    NzSpaceModule,
-    NzModalModule,
-    NzFormModule,
-    ReactiveFormsModule,
-    NzInputNumberModule,
-    NzInputModule,
-    NzTableModule,
-    NzDividerModule,
-    NzTypographyModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        IconsProviderModule,
+        NzLayoutModule,
+        NzMenuModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        provideFirestore(() => getFirestore()),
+        AngularFireStorageModule,
+        AngularFireAuthModule,
+        NzButtonModule,
+        NzSpaceModule,
+        NzModalModule,
+        NzFormModule,
+        ReactiveFormsModule,
+        NzInputNumberModule,
+        NzInputModule,
+        NzTableModule,
+        NzDividerModule,
+        NzTypographyModule,
+        NzUploadModule,
+        NzSelectModule
+    ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
   ],
