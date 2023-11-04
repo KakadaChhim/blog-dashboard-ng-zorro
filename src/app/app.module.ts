@@ -36,6 +36,7 @@ import {PostOperationComponent} from "./pages/post/post-operation.component";
 import {NzUploadModule} from "ng-zorro-antd/upload";
 import {CategorySelectComponent} from "./pages/category/category-select.component";
 import {NzSelectModule} from "ng-zorro-antd/select";
+import {PostDeleteComponent} from "./pages/post/post-delete.component";
 
 registerLocaleData(en);
 const firebaseConfig = {
@@ -56,7 +57,8 @@ const firebaseConfig = {
     CategoryDeleteComponent,
     CategorySelectComponent,
     PostListComponent,
-    PostOperationComponent
+    PostOperationComponent,
+    PostDeleteComponent
   ],
     imports: [
         BrowserModule,

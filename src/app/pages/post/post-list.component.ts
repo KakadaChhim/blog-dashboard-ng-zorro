@@ -58,7 +58,7 @@ import {PostUiService} from "./post-ui.service";
               <span>{{data.data.excerpt}}</span>
             </td>
             <td nzEllipsis>
-              <span>{{data.data.category.category}}</span>
+              <span>{{data.data.category.data.category}}</span>
             </td>
             <td nzEllipsis>
               <span>{{data.data.createAt.toMillis() | date}}</span>
@@ -78,7 +78,7 @@ import {PostUiService} from "./post-ui.service";
                   </a>
                 </ng-container>
                 <ng-container>
-                  <a *nzSpaceItem nz-typography style="color: #F31313" >
+                  <a *nzSpaceItem nz-typography style="color: #F31313" (click)="uiService.showDelete(data.id || '0')">
                     <i nz-icon nzType="delete" nzTheme="outline" style="padding-right: 5px"></i>
                     {{'Delete' }}
                   </a>
@@ -117,7 +117,7 @@ export class PostListComponent implements OnInit{
     this.service.loadData().subscribe(value => {
       // console.log(value)
       this.list = value;
-      // console.log(this.list)
+      console.log(this.list)
     })
   }
 

@@ -1,6 +1,8 @@
 import {EventEmitter, Injectable} from "@angular/core";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {PostOperationComponent} from "./post-operation.component";
+import {CategoryDeleteComponent} from "../category/category-delete.component";
+import {PostDeleteComponent} from "./post-delete.component";
 export interface nzData{
   id: string;
   isView: boolean;
@@ -18,7 +20,7 @@ export class PostUiService{
       nzData: {id: '0', isView: false},
       nzFooter:null,
       nzClosable: true,
-      nzWidth: '900px',
+      nzWidth: '1000px',
       nzBodyStyle: {paddingBottom: '10px'},
       nzMaskClosable:false,
       nzOnOk: (e) => {
@@ -26,4 +28,19 @@ export class PostUiService{
       }
     })
   }
+
+    showDelete(id: string ): void{
+        this.modalService.create({
+            nzContent: PostDeleteComponent,
+            // nzComponentParams: {id},
+            nzData: {id: id, isView: false},
+            nzClosable: true,
+            nzWidth: '480px',
+            nzBodyStyle: {height: '63px', padding: '0', display: 'flex', alignItems: 'center'},
+            nzMaskClosable: false,
+            nzOnOk: (e) => {
+                // this.refresher.emit({key: 'deleted', value: e.model});
+            }
+        });
+    }
 }

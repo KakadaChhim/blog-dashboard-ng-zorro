@@ -46,17 +46,16 @@ export class PostService{
           const Id = objectId.id;
           this.updateData(Id, postData);
         }else {
-          this.saveData(postData);
+          this.add(postData);
         }
       })
     });
   }
 
-  saveData(postData:any){
+  add(postData:any){
     this.angularFireStore.collection('posts').add(postData).then(docRef =>{
       console.log("data upload successfully");
     });
-    this.router.navigate(['/posts'])
   }
 
   loadData(){
@@ -71,7 +70,7 @@ export class PostService{
     )
   }
 
-  loadOneData(id: any){
+  find(id: any){
     // const objectId = id;
     // const Id = objectId.id;
     // console.log(id);
@@ -82,7 +81,6 @@ export class PostService{
   updateData(id:string, postData: any){
     this.angularFireStore.doc(`posts/${id}`).update(postData).then(()=>{
       console.log("Update data successfully");
-      this.router.navigate(['/posts']);
     })
   }
 
