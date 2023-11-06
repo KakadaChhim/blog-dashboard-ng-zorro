@@ -33,18 +33,21 @@ export class PostDeleteComponent implements OnInit{
   ) {
   }
     ngOnInit(): void {
-        console.log(this.modal.id);
+        // console.log(this.modal.id);
         // if (this.modal.id){
-        //   this.loading = true;
-        //   this.service.deleteData(this.modal.id);
-        //   this.loading = false;
+        //     this.service.find(this.modal.id).subscribe(value => {
+        //         this.data = value;
+        //         this.postImageURL = this.data.postImageURL;
+        //         console.log(this.data.postImagePath);
+        //     });
         // }
     }
 
     onSubmit(){
         if (this.modal.id){
-            this.service.deleteData(this.modal.id);
-            this.ref.triggerOk();
+          // console.log(this.modal.postImageURL)
+          this.service.deleteImage(this.modal.postImageURL, this.modal.id);
+          this.ref.triggerOk();
         }
     }
     cancel(){

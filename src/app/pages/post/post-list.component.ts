@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {PostService} from "./post.service";
 import {PostUiService} from "./post-ui.service";
+import {da} from "date-fns/locale";
 
 @Component({
   selector: 'app-post-list',
@@ -72,13 +73,14 @@ import {PostUiService} from "./post-ui.service";
                   <nz-divider nzType="vertical"></nz-divider>
                 </ng-template>
                 <ng-container>
-                  <a *nzSpaceItem  nz-typography >
+                  <a *nzSpaceItem  nz-typography (click)="uiService.showEdit(data.id, data.data.postImagePath)">
                     <i nz-icon nzType="edit" nzTheme="outline" style="padding-right: 5px"></i>
                     {{'Edit' }}
                   </a>
                 </ng-container>
                 <ng-container>
-                  <a *nzSpaceItem nz-typography style="color: #F31313" (click)="uiService.showDelete(data.id || '0')">
+                  <a *nzSpaceItem nz-typography style="color: #F31313"
+                     (click)="uiService.showDelete(data.id , data.data.postImagePath)">
                     <i nz-icon nzType="delete" nzTheme="outline" style="padding-right: 5px"></i>
                     {{'Delete' }}
                   </a>
@@ -117,8 +119,9 @@ export class PostListComponent implements OnInit{
     this.service.loadData().subscribe(value => {
       // console.log(value)
       this.list = value;
-      console.log(this.list)
+      // console.log(this.list)
     })
   }
 
+  protected readonly da = da;
 }

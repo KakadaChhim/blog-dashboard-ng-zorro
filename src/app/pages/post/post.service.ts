@@ -71,10 +71,6 @@ export class PostService{
   }
 
   find(id: any){
-    // const objectId = id;
-    // const Id = objectId.id;
-    // console.log(id);
-    // return this.angularFireStore.doc(`posts/${Id}`).valueChanges();
     return this.angularFireStore.collection('posts').doc(id).valueChanges();
   }
 
@@ -85,7 +81,7 @@ export class PostService{
   }
 
   deleteImage(postImagePath: any, id: any){
-    // console.log(postImagePath);
+    console.log(postImagePath);
     this.angularFireStorage.storage.refFromURL(postImagePath).delete().then(()=>{
       console.log("Delete Image done!");
     });
